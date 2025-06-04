@@ -14,16 +14,16 @@ models.Base.metadata.create_all(bind=engine)
 
 
 
-while True:  
-    try:
-        conn=psycopg2.connect(host='name',database='name',user='name',password='your_passwoed',cursor_factory=RealDictCursor)
-        cursor= conn.cursor()
-        print("Sucess")
-        break
-    except Exception as err:
-        print("failed")   
-        print(err) 
-        time.sleep(2)
+# while True:  
+#     try:
+#         conn=psycopg2.connect(host='name',database='name',user='name',password='your_passwoed',cursor_factory=RealDictCursor)
+#         cursor= conn.cursor()
+#         print("Sucess")
+#         break
+#     except Exception as err:
+#         print("failed")   
+#         print(err) 
+#         time.sleep(2)
 
 my_posts =[{"title":"title of post 1", "content":"content of post 1", "id":1},{"title":"title of post 2","content":"Content of post 2","id":2}
         ]
