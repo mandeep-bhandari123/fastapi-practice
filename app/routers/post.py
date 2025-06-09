@@ -1,3 +1,4 @@
+from typing import List
 from .. import models , schemas ,oauth2
 from sqlalchemy.orm import session
 from fastapi import FastAPI , Response , status ,HTTPException , Depends ,APIRouter
@@ -9,6 +10,10 @@ router = APIRouter(
 )
 
 
+@router.get("/", response_model=List[schemas.Post])
+def get_all_post(db:session=Depends(get_db)):
+    posts= db.query(models.Post).all()
+    return posts
 
 @router.post("/",status_code=status.HTTP_201_CREATED,response_model=schemas.Post)
 def createpost(post:schemas.PostCreate,db:session=Depends(get_db), curent_user:int = Depends(oauth2.get_current_user)): 

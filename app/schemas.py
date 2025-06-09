@@ -15,6 +15,7 @@ class Post(BaseModel):
     content:str
     published:bool
     created_at:datetime
+    owner_id:int
     class Config:
         orm_mode = True
 
