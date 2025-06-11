@@ -25,3 +25,16 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+
+# while True:  
+#     try:
+#         conn=psycopg2.connect(host='name',database='name',user='name',password='your_passwoed',cursor_factory=RealDictCursor)
+#         cursor= conn.cursor()
+#         print("Sucess")
+#         break
+#     except Exception as err:
+#         print("failed")   
+#         print(err) 
+#         time.sleep(2)

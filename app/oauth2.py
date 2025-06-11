@@ -4,11 +4,16 @@ from .  import schemas , database ,models
 from fastapi import Depends, status , HTTPException 
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv(dotenv_path=r"C:\Users\nishc\project\fapi\app\.env")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='login')
 
-SECRET_KEY="arugahkhgeyrtgeyrgfy457i368yeiugfwyt473i7huY7383647YIy3u54756847uuG#%$*^KGIUDFGSEFGSEYTgds7i83748379"
-ALGORITHM="HS256"
+SECRET_KEY=os.getenv("SECRET_KEY")
+ALGORITHM=os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = 6000
 
 def create_access_token(data:dict):
@@ -20,8 +25,10 @@ def create_access_token(data:dict):
     
     return encoded_jwt
 
+
+
 def verify_access_token(token:str, credentials_exception):
-    print(token)
+    
     try:
         payload= jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         
