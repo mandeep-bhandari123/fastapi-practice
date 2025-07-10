@@ -2,7 +2,7 @@ from typing import List, Optional
 from .. import models , schemas ,oauth2
 from sqlalchemy import func
 from sqlalchemy.orm import session 
-from fastapi import FastAPI , Response , status ,HTTPException , Depends ,APIRouter
+from fastapi import  Response , status ,HTTPException , Depends ,APIRouter
 from ..database import get_db 
 
 
